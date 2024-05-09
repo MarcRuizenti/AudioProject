@@ -10,6 +10,7 @@ public class RandomPlayInterval : MonoBehaviour
     [SerializeField] private float minNum; 
     [SerializeField] private float maxNum;
     AudioSource myAudioSource;
+    [SerializeField] private bool RandomTime;
 
     void Start()
     {
@@ -25,6 +26,10 @@ public class RandomPlayInterval : MonoBehaviour
             int num = Random.Range(0, sounds.Length);
             AudioClip sound = sounds[num];
             myAudioSource.PlayOneShot(sound);
+            if (RandomTime)
+            {
+                myAudioSource.time = Random.Range(0.0f, sound.length);
+            }
             timerCounter = Random.Range(minNum, maxNum) + sound.length;
             
         }
