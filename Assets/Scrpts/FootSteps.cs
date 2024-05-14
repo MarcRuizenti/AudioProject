@@ -6,6 +6,7 @@ public class FootSteps : MonoBehaviour
 {
     public AudioClip[] footstepsOnGrass;
     public AudioClip[] footstepsOnStone;
+    public AudioClip[] footstepsOnWood;
 
     public string material;
 
@@ -25,6 +26,9 @@ public class FootSteps : MonoBehaviour
                 myAudioSource.PlayOneShot(footstepsOnStone[Random.Range(0, footstepsOnStone.Length)]);
                 break;
 
+            case "wood":
+                myAudioSource.PlayOneShot(footstepsOnWood[Random.Range(0, footstepsOnWood.Length)]);
+                break;
             default:
                 break;
         }
@@ -36,6 +40,7 @@ public class FootSteps : MonoBehaviour
         {
             case "Grass":
             case "Stone":
+            case "wood":
                 material = collision.gameObject.tag;
                 break;
 
